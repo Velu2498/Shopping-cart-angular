@@ -1,0 +1,28 @@
+<div class="container-fluid mt-5 col-lg-4  pt-5 p-5 mb-5">
+    <div class="border border-info rounded card p-4 ">
+        <h2 class="text-center ">Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="form-row ">
+                <div class="form-group col-sm-12 col-lg-12 ">
+                    <label for="userName">Username</label>
+                    <input type="text" class="form-control " id="userName" placeholder="Enter Username" formControlName="username">
+                    <div class="text-danger " *ngIf="this.loginForm.controls.username.touched && !this.loginForm.controls.username.valid " ><small> Username is required</small></div> 
+                    <!-- *ngIf="this.loginForm.controls.username.touched && !this.loginForm.controls.username.valid" -->
+                </div>
+            </div>
+            <div class="form-row ">
+                <div class="form-group col-sm-12 col-lg-12 ">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control " id="inputPassword " placeholder="Enter Password " formControlName="password">
+                    <div class="text-danger" *ngIf="this.loginForm.controls.password.touched && !this.loginForm.controls.password.valid "><small> Password is required</small></div>
+                </div>
+            </div>
+            <div class="form-row ">
+                <div class=" d-flex form-group col-sm-12 col-lg-12 ">
+                    <button class="btn color" id="login" (click)=login() >Login</button>
+                    <div class="ml-auto ">New here? <a routerLink="/register">Signup</a></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

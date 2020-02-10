@@ -1,0 +1,24 @@
+<div class="form" style="overflow: hidden;">
+    <form  [formGroup]="data">
+        <!-- name -->
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="Name">
+        </div>
+       <!-- email -->
+    <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control"  formControlName="email">
+      </div>
+      <!-- password -->
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control"  formControlName="password">
+      </div>
+
+        <!-- submit button -->
+    <input type="submit" class="btn btn-primary" (click)=add() >
+
+    <p class="d-flex justify-content-center">Already a member ?<a href="/login">login</a></p>
+</form>
+</div>

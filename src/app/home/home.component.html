@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- content -->
+        <div class="col-xl-6">
+            <div class="row">
+                <!-- card products -->
+                <div class="col-xl-6" *ngFor="let l of  products">
+                    <div class="card" id="{{l.productName}}" style="border: 25px;  width: 18rem;">
+                        <img src="{{l.image}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{l.productName}}</h5>
+                            <!-- <input id="{{l.productName}}-cost" value="{{l.basePrice}}"> <br><b>BASE PRICE :</b> {{l.basePrice}}  -->
+                           <b>BASE PRICE :</b>  <span id="{{l.productName}}-cost" > {{l.basePrice}} </span><br>
+                            <b>DESCRIPTION :</b> {{l.description}}
+                            <div class="card-text" *ngFor="let v of  l.varients">  
+                                <!-- drop down boxs -->
+                                <!-- <form  [formGroup]="form"> -->
+                                <!-- <span *ngFor="let vt of  v.type"> {{vt}}</span> -->
+                                <!-- {{l.productName}}-{{v.type}} -->
+                                <b>{{v.type}} - </b>
+                                <select id="{{l.productName}}-{{v.type}}" (change)="onchange(l.productName,v.type,$event.target.value) " >
+                                    <!-- (change)="onchange(l.productName,v.type,$event.target.value)" -->
+                                    <option  *ngFor="let vv of v.values" value="{{vv}}" >{{vv}}</option>
+                                </select> 
+                                <!-- </form> -->
+                            </div>
+                            <button  class="btn btn-primary" id="{{l.productName}}" (click)="fun(l.productName)" >Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- cart page -->
+        <div class="col-xl-6" style="background-color: brown;">
+            <h3 style="text-align: center;">CART DETAILS</h3>
+
+            <!-- <span *ngFor="let p of array">
+                {{p.name}}
+                {{p.size}}
+                {{p.material}}
+                {{p.color}}
+            </span> -->
+
+        <div class="row">
+            <div class="col-xl-6" *ngFor="let p of array;index as i" style="margin-top: 50px;">
+                    <div class="card" style="border: 25px;  width: 18rem;">
+                        <!-- <img src="{{l.image}}" class="card-img-top" alt="..."> -->
+                        <div class="card-body">
+                            <h5 class="card-title">{{p.name}}</h5>
+                            <div class="card-text" >  
+                                <span *ngIf="p.size != undefined"> <b>size - {{p.size}}</b> </span> <br *ngIf="p.size != undefined">
+                                <b> Material - {{p.material}}</b> <br>
+                                <b> Color -  {{p.color}}</b> <br>
+                                <b>PRICE - {{p.price}}</b>
+                                <button class="btn btn-danger ml-5" (click)="del(i)"> delete</button>
+                            </div>
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p>string interpolation</p>
+<button (click)="fun()">click</button> <br> -->
+
+<!-- <input type="text" value={{price}} > <br> -->
+<!-- <input type="text" name="" id="" [value]=price> <br>
+
+
+<input type="text" [(ngModel)]="data">
+{{data}} -->
