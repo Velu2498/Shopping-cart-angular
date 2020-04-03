@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
               this.r.navigate(["/login"]);
             } else {
               this.r.navigate(["/error"]);
+
             }
           }
         },
@@ -176,6 +177,7 @@ export class HomeComponent implements OnInit {
 //cart array
   array: any = [];
 
+  
 //add to cart function
   fun(para) {
     this.c = 0;
